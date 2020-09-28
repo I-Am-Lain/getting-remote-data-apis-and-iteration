@@ -3,11 +3,11 @@ require 'json'
 require 'pry'
 
 def get_character_movies_from_api(character_name)
-  #final = []
+  
   find_character_by_name(character_name)["films"].map do |film|
       JSON.parse(RestClient.get(film))
   end
-  #final
+  
 end
 
 def find_character_by_name(name)
@@ -29,7 +29,4 @@ def show_character_movies(character)
   print_movies(films)
 end
 
-## BONUS
 
-# that `get_character_movies_from_api` method is probably pretty long. Does it do more than one job?
-# can you split it up into helper methods?
